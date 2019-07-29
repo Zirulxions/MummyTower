@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Create New Account
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <div style="display:inline-block" id="mummy-test"></div>
+      <ion-card-title style="display:inline-block; margin-left: 5px">All Fields Are Required</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-input clearInput required type="text" placeholder="Username" id="username">
+          <ion-icon slot="start" name="logo-playstation"></ion-icon>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input clearInput required type="text" placeholder="Email" id="email">
+          <ion-icon slot="start" name="create"></ion-icon>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input clearInput required type="password" placeholder="Password" id="password">
+          <ion-icon slot="start" name="lock"></ion-icon>
+        </ion-input>
+      </ion-item>
+      <br>
+        <ion-button class="register-button" color="primary" size="medium" (click)="createUser()">
+          <ion-icon slot="start" name="checkmark-circle"></ion-icon>
+          Register Now!
+        </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

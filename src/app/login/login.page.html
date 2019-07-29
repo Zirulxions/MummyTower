@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      LogIn
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <div style="display:inline-block" id="kaboom-test"></div>
+      <ion-card-title style="display: inline-block; margin-left: 5px">Insert Your Username and Password</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-input clearInput required type="text" placeholder="Username" id="username">
+          <ion-icon slot="start" name="logo-github"></ion-icon>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input clearInput required type="password" placeholder="Password" id="password">
+          <ion-icon slot="start" name="key"></ion-icon>
+        </ion-input>
+      </ion-item>
+      <br>
+        <ion-button class="login-button" color="primary" size="medium" (click)="logIn()">
+          <ion-icon slot="start" name="checkmark-circle"></ion-icon>
+          Log In Now!
+        </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
