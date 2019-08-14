@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController, ToastController } from '@ionic/angular';
 
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+
 declare let Phaser;
 let mummy;
 let game;
@@ -13,7 +15,10 @@ let that;
 })
 export class RegisterPage implements OnInit {
 
-  constructor(public toastController: ToastController) {
+  constructor(public toastController: ToastController, private screenOrientation: ScreenOrientation) {
+
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+
     game = new Phaser.Game(50, 50, Phaser.AUTO, 'mummy-test',
       { preload: this.preload, create: this.create, update: this.update });
     that = Object.create(this.constructor.prototype);

@@ -1,4 +1,4 @@
-This starter gives you a head-start with Ionic and Phaser game framework integration. We have integrated a cool Phaser game in Ionic 4 and you can check out the source code by yourself. The integration and setup instructions are detailed in our blog [How to create Mobile games & PWA with Ionic 4 and Phaser].
+﻿This starter gives you a head-start with Ionic and Phaser game framework integration. We have integrated a cool Phaser game in Ionic 4 and you can check out the source code by yourself. The integration and setup instructions are detailed in our blog [How to create Mobile games & PWA with Ionic 4 and Phaser].
 
 ### How many games can I develop
 The possibilities are infinite. With the Ionic's app development capability and Phaser's game engine, you can create any HTML game possible. Check out the free example available on [Phaser examples]. 
@@ -15,3 +15,12 @@ Ionic 4 gives superior performance over previous versions as it is based on Angu
 
 [Phaser examples]: <https://phaser.io/examples>
 [How to create Mobile games & PWA with Ionic 4 and Phaser]:<https://medium.com/enappd/how-to-create-mobile-games-pwa-with-ionic4-and-phaser-7fb1e917678e>
+
+### Dependencies used <Node Package Manager> and <Plugins>
+npm install phaser-ce
+npm install @angular/service-worker
+npm install -g ionic@latest
+ionic cordova plugin add cordova-plugin-screen-orientation
+npm install @ionic-native/screen-orientation
+ionic cordova plugin add cordova-sqlite-storage
+npm install --save @ionic/storage

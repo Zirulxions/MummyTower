@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { MenuController} from '@ionic/angular';
 import { Router } from '@angular/router';
 
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+
 declare let Phaser;
 //import * as Phaser from "phaser-ce";
 
@@ -51,11 +53,23 @@ let enemyArray = [];
 })
 export class HomePage {
 
-  constructor(private menuCtrl: MenuController, private router: Router) {
-    game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'space-invaders',
-      { preload: this.preload, create: this.create, update: this.update, render: this.render });
-    that = Object.create(this.constructor.prototype);
+  constructor(private menuCtrl: MenuController, private router: Router, private screenOrientation: ScreenOrientation) {
+
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+
+    this.delay(3000).then(() => {
+
+          game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'space-invaders',
+            { preload: this.preload, create: this.create, update: this.update, render: this.render });
+          that = Object.create(this.constructor.prototype);
+    });
+
   }
+
+  async delay(ms: number){
+    await new Promise(resolve => setTimeout(() => resolve(), ms));
+  }
+
 /*
   ionViewDidEnter() {
     this.menuCtrl.enable(false, 'start');
