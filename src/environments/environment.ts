@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: "AIzaSyBl_cv6OT3MpYezQZ5-z-tarqhSkkf-la0",
+    authDomain: "phaserionicgame.firebaseapp.com",
+    databaseURL: "https://phaserionicgame.firebaseio.com",
+    projectId: "phaserionicgame",
+    storageBucket: "phaserionicgame.appspot.com",
+    messagingSenderId: "912772014321",
+    appId: "1:912772014321:web:0cb164f7e5bdd042"
+  }
 };
 
 /*

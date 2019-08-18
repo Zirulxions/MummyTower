@@ -16,19 +16,19 @@
     </ion-card-header>
     <ion-card-content>
       <ion-item>
-        <ion-input clearInput required type="text" placeholder="Username" id="username">
+        <ion-input clearInput required type="text" [(ngModel)]="username" placeholder="Username">
           <ion-icon slot="start" name="logo-github"></ion-icon>
         </ion-input>
       </ion-item>
       <ion-item>
-        <ion-input clearInput required type="password" placeholder="Password" id="password">
+        <ion-input clearInput required type="password" [(ngModel)]="password" placeholder="Password">
           <ion-icon slot="start" name="key"></ion-icon>
         </ion-input>
       </ion-item>
       <br>
         <ion-button class="login-button" color="primary" size="medium" (click)="logIn()">
           <ion-icon slot="start" name="checkmark-circle"></ion-icon>
-          Log In Now!
+          LogIn!
         </ion-button>
     </ion-card-content>
   </ion-card>

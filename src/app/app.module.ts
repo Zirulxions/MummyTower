@@ -13,6 +13,11 @@ import { environment } from '../environments/environment';
 
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth'
+import { HttpModule } from '@angular/http'
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -20,7 +25,11 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    HttpModule,
   ],
   providers: [
     StatusBar,
