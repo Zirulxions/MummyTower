@@ -24,3 +24,8 @@ ionic cordova plugin add cordova-plugin-screen-orientation
 npm install @ionic-native/screen-orientation
 ionic cordova plugin add cordova-sqlite-storage
 npm install --save @ionic/storage
+npm install --global --production windows-build-tools@4.0.0
+npm install -g node-gyp
+npm install --save @ionic/angular-toolkit@1.5.1
+npm rebuild node-sass
+npm i firebase@5.7.0 angularfire2 -S
