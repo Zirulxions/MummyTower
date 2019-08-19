@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController, ToastController } from '@ionic/angular';
 
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase/app';
 
 declare let Phaser;
 let mummy;
@@ -15,13 +17,44 @@ let that;
 })
 export class RegisterPage implements OnInit {
 
-  constructor(public toastController: ToastController, private screenOrientation: ScreenOrientation) {
+  username: string = "";
+  password: string = "";
+  cpassword: string = "";
+
+  constructor(public afAuth: AngularFireAuth, public toastController: ToastController, private screenOrientation: ScreenOrientation) {
 
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
 
     game = new Phaser.Game(50, 50, Phaser.AUTO, 'mummy-test',
       { preload: this.preload, create: this.create, update: this.update });
     that = Object.create(this.constructor.prototype);
+  }
+
+  async register(){
+    const { username, password, cpassword } = this;
+    if( password !== cpassword ){
+      const toast = await this.toastController.create({
+        message: "Passwords don't match",
+        duration: 3000
+      });
+      toast.present();
+    } else {
+      try{
+        const res = await this.afAuth.auth.createUserWithEmailAndPassowrd(username, password);
+        const toast = await this.toastController.create({
+          message: "Successfull: " + res.operationType,
+          duration: 3000
+        });
+        toast.present();
+      } catch (err) {
+        const toast = await this.toastController.create({
+          message: err.message,
+          duration: 3000
+        });
+        toast.present();
+      }
+    }
+  //console.log(username + " " + email + " " + password);
   }
 
   preload(){
@@ -41,28 +74,6 @@ export class RegisterPage implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  async createUser(){
-    var username = (<HTMLInputElement>document.getElementById("username")).value;
-    var email = (<HTMLInputElement>document.getElementById("email")).value;
-    var password = (<HTMLInputElement>document.getElementById("password")).value;
-    var message;
-    if(username.trim() == ""){
-      message = "Missing Username Field";
-    } else if (email.trim() == ""){
-      message = "Missing Email Field";
-    } else if (password.trim() == ""){
-      message = "Missing Password Field";
-    } else {
-      message = "Data Found... Username: " + username + " Email: " + email + " Password: " + password;
-    };
-    const toast = await this.toastController.create({
-      message: message,
-      duration: 2000
-    });
-    toast.present();
-  //console.log(username + " " + email + " " + password);
   }
 
 }

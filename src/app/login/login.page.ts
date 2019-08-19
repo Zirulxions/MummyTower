@@ -3,6 +3,7 @@ import { ToastController } from '@ionic/angular';
 
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase/app';
 
 declare let Phaser;
 let explosion;
@@ -31,12 +32,13 @@ export class LoginPage implements OnInit {
   // only @gmail.com
   async logIn(){
 
-    const { username, password } = this
+    const { username, password } = this;
     try{
-      const res = await this.afAuth.auth.signInWithEmailAndPassword(username + "@gmail.com", password)
+      const res = await this.afAuth.auth.signInWithEmailAndPassword(username + "@gmail.com", password);
     } catch (err) {
+      console.dir(err);
       const toast = await this.toastController.create({
-        message: err,
+        message: err.message,
         duration: 3000
       });
       toast.present();

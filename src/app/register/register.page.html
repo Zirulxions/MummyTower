@@ -16,22 +16,22 @@
     </ion-card-header>
     <ion-card-content>
       <ion-item>
-        <ion-input clearInput required type="text" placeholder="Username" id="username">
-          <ion-icon slot="start" name="logo-playstation"></ion-icon>
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input clearInput required type="text" placeholder="Email" id="email">
+        <ion-input clearInput required type="text" [(ngModel)]="username" placeholder="Email (user@gmail.com)">
           <ion-icon slot="start" name="create"></ion-icon>
         </ion-input>
       </ion-item>
       <ion-item>
-        <ion-input clearInput required type="password" placeholder="Password" id="password">
-          <ion-icon slot="start" name="lock"></ion-icon>
+        <ion-input clearInput required type="password" [(ngModel)]="password" placeholder="Password">
+          <ion-icon slot="start" name="key"></ion-icon>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input clearInput required type="password" [(ngModel)]="cpassword" placeholder="Confirm Password">
+          <ion-icon slot="start" name="key"></ion-icon>
         </ion-input>
       </ion-item>
       <br>
-        <ion-button class="register-button" color="primary" size="medium" (click)="createUser()">
+        <ion-button class="register-button" color="primary" size="medium" (click)="register()">
           <ion-icon slot="start" name="checkmark-circle"></ion-icon>
           Register Now!
         </ion-button>
