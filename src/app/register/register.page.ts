@@ -40,7 +40,7 @@ export class RegisterPage implements OnInit {
       toast.present();
     } else {
       try{
-        const res = await this.afAuth.auth.createUserWithEmailAndPassowrd(username, password);
+        const res = await this.afAuth.auth.createUserWithEmailAndPassword(username, password);
         const toast = await this.toastController.create({
           message: "Successfull: " + res.operationType,
           duration: 3000

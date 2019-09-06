@@ -34,7 +34,7 @@ export class LoginPage implements OnInit {
 
     const { username, password } = this;
     try{
-      const res = await this.afAuth.auth.signInWithEmailAndPassword(username + "@gmail.com", password);
+      const res = await this.afAuth.auth.signInWithEmailAndPassword(username, password);
     } catch (err) {
       console.dir(err);
       const toast = await this.toastController.create({
